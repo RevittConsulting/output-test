@@ -1,0 +1,21 @@
+name: Run E2E and RPC Tests
+
+on:
+  pull_request:    
+
+jobs:
+  parseoutput:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v3
+      with:
+        lfs: "true"
+      name: Check out code
+
+    - name: Publish test results
+      uses: EnricoMi/publish-unit-test-result-action@v1
+      if: always()
+      with:
+        files: output.xml
+        check_name: "Test results"
