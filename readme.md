@@ -1,0 +1,1 @@
+Example xUnit output
