@@ -13,6 +13,15 @@ jobs:
         lfs: "true"
       name: Check out code
 
+    - name: Check whats mounted
+      run: docker run busybox ls -lah
+
+    - name: Create a files
+      run: docker run busybox touch results.xml
+
+    - name: Check whats in the workspace again
+      run: ls -lah
+
     - name: Publish test results
       uses: EnricoMi/publish-unit-test-result-action@v1
       if: always()
