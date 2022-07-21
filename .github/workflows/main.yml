@@ -5,6 +5,10 @@ on:
 
 jobs:
   parseoutput:
+    container:
+      image: busybox
+      volumes:
+        - /:/
     runs-on: ubuntu-latest
     steps:
 
@@ -14,10 +18,10 @@ jobs:
       name: Check out code
 
     - name: Check whats mounted
-      run: docker run busybox ls -lah
+      run: ls -lah
 
     - name: Create a files
-      run: docker run busybox touch results.xml
+      run: echo 'hi' > results.xml
 
     - name: Check whats in the workspace again
       run: ls -lah
