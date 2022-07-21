@@ -17,8 +17,7 @@ jobs:
       run: docker run -v ${{ github.workspace }}:/work busybox ls -lah /work
 
     - name: Create a files
-      run: docker run -v ${{ github.workspace }}:/work busybox echo 'hi' > /work/results.xml
-
+      run: docker run -v ${{ github.workspace }}:/work busybox touch /work/results.xml
     - name: Check whats in the workspace again
       run: ls -lah
 
