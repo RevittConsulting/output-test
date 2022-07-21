@@ -8,7 +8,7 @@ jobs:
     container:
       image: busybox
       volumes:
-        - /:/
+        - ${{ github.workspace }}:${{ github.workspace }}
     runs-on: ubuntu-latest
     steps:
 
