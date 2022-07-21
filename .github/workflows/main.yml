@@ -5,10 +5,6 @@ on:
 
 jobs:
   parseoutput:
-    container:
-      image: busybox
-      volumes:
-        - ${{ github.workspace }}:/github
     runs-on: ubuntu-latest
     steps:
 
@@ -18,13 +14,13 @@ jobs:
       name: Check out code
 
     - name: Check whats mounted
-      run: ls -lah /github
+      run: docker run busybox -v ${{ github.workspace }}:/work ls -lah /work
 
     - name: Create a files
-      run: echo 'hi' > /github/results.xml
+      run: docker run busybox -v ${{ github.workspace }}:/work echo 'hi' > /work/results.xml
 
     - name: Check whats in the workspace again
-      run: ls -lah /github
+      run: ls -lah
 
     - name: Publish test results
       uses: EnricoMi/publish-unit-test-result-action@v1
