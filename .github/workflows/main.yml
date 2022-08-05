@@ -21,9 +21,8 @@ jobs:
     - name: Check whats in the workspace again
       run: ls -lah
 
-    - name: Publish test results
-      uses: EnricoMi/publish-unit-test-result-action@v1
-      if: always()
+    - uses: actions/upload-artifact@v2  # upload test results
+      if: success() || failure()        # run this step even if previous step failed
       with:
-        files: output.xml
-        check_name: "Test results"
+        name: test-results
+        path: output.xml
