@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites id="0" name="Hive Test Run" tests="112" failures="29" time="2022-07-18 09:36:14.18023601 +0000 UTC m=+0.062274418">
     <testsuite id="1" name="graphql" tests="1" failures="1" time="">
-        Test suite covering the graphql API surface.&#xA;The GraphQL tests were initially imported from the Besu codebase.
+        Test suite covering the graphql API surface.&#xA;The GraphQL tests were initially imported from the Besu codebase. (max's change to bump CI).
         <testcase id="1" name="client launch (besu_latest)" time="">
             This is a meta-test. It launches the client with the test chain&#xA;and reads the test case files. The individual test cases are run as sub-tests against&#xA;the client launched by this test.
             <failure message="Error" type="ERROR">can&#39;t launch node (type besu_latest): client did not start: timed out waiting for container startup&#xA;</failure>
